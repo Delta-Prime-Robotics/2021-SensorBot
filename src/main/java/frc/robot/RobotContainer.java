@@ -5,8 +5,13 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.commands.*;
+import frc.robot.subsystems.*;
+
+import static frc.robot.Constants.*;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -15,14 +20,19 @@ import edu.wpi.first.wpilibj2.command.Command;
  * subsystems, commands, and button mappings) should be declared here.
  */
 public class RobotContainer {
+  // OI controllers are defined here...
+  private final Joystick m_gamePad = new Joystick(Laptop.UsbPorts.GamePad);
+  
   // The robot's subsystems and commands are defined here...
-  // private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
+  private final DriveSubsystem m_driveSubsystem = new DriveSubsystem();
 
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
-    // Configure the button bindings
+    
     configureButtonBindings();
+    
+    configureDefaultCommands();
   }
 
   /**
@@ -32,6 +42,21 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {}
+
+
+  /**
+   * Use this method to set the default commands for subsystems
+   * Default commands can be explicit command classes, inline or use one of the
+   * "convenience" subclasses of command (e.g. {@link edu.wpi.first.wpilibj2.command.InstantCommand})
+   */
+  private void configureDefaultCommands() {    
+    // Set Arcade Drive as the default
+    m_driveSubsystem.setDefaultCommand(
+      new ArcadeDriveCommand(m_driveSubsystem,
+      () -> -m_gamePad.getRawAxis(GamePad.RightStick.UpDown),
+      () -> m_gamePad.getRawAxis(GamePad.RightStick.LeftRight))
+    );
+  }
 
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
