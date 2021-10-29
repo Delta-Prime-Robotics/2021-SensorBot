@@ -12,13 +12,13 @@ import frc.robot.subsystems.DriveSubsystem;
 public class ArcadeDriveCommand extends CommandBase {
 
   private final DriveSubsystem m_drive;
-  private final DoubleSupplier m_forward;
+  private final DoubleSupplier m_forwardSpeed;
   private final DoubleSupplier m_rotation;
 
   /** Creates a new ArcadeDriveCommand. */
-  public ArcadeDriveCommand(DriveSubsystem subsystem, DoubleSupplier forward, DoubleSupplier rotation) {
+  public ArcadeDriveCommand(DriveSubsystem subsystem, DoubleSupplier forwardSpeed, DoubleSupplier rotation) {
     m_drive = subsystem;
-    m_forward = forward;
+    m_forwardSpeed = forwardSpeed;
     m_rotation = rotation;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(m_drive);
@@ -31,7 +31,7 @@ public class ArcadeDriveCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_drive.arcadeDrive(m_forward.getAsDouble(), m_rotation.getAsDouble());
+    m_drive.arcadeDrive(m_forwardSpeed.getAsDouble(), m_rotation.getAsDouble());
   }
 
   // Called once the command ends or is interrupted.

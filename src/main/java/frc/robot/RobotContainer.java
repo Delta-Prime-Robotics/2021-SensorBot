@@ -21,7 +21,7 @@ import static frc.robot.Constants.*;
  */
 public class RobotContainer {
   // OI controllers are defined here...
-  private final Joystick m_gamePad = new Joystick(Laptop.UsbPorts.GamePad);
+  private final Joystick m_gamePad = new Joystick(Laptop.UsbPorts.kGamePad);
   
   // The robot's subsystems and commands are defined here...
   private final DriveSubsystem m_driveSubsystem = new DriveSubsystem();
@@ -53,8 +53,8 @@ public class RobotContainer {
     // Set Arcade Drive as the default
     m_driveSubsystem.setDefaultCommand(
       new ArcadeDriveCommand(m_driveSubsystem,
-      () -> -m_gamePad.getRawAxis(GamePad.RightStick.UpDown),
-      () -> m_gamePad.getRawAxis(GamePad.RightStick.LeftRight))
+      () -> -m_gamePad.getRawAxis(GamePad.RightStick.kUpDown),
+      () -> m_gamePad.getRawAxis(GamePad.RightStick.kLeftRight))
     );
   }
 

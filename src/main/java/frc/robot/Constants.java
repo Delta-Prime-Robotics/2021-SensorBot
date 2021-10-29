@@ -23,17 +23,19 @@ public final class Constants {
             
         }
         public final class CanID {
-            public static final int LeftsparkMax = 11;
-            public static final int RightsparkMax = 12;
-            public static final int PCM = 0;
+            public static final int kLeftLeader = 11;
+            public static final int kLeftFollower = 12;
+            public static final int kRightLeader = 13;
+            public static final int kRightFollower = 14;
+            public static final int kPCM = 0;
         }
     }
 
     // Connections to the Drivers' Station Laptop
     public static final class Laptop {
         public final class UsbPorts {
-            public static final int GamePad = 2;
-            public static final int Joystick = 3;
+            public static final int kGamePad = 2;
+            public static final int kJoystick = 3;
         }
     }
 
@@ -41,37 +43,37 @@ public final class Constants {
     public static final class GamePad {
         // Joysticks and their axes
         public final class LeftStick {
-            public static final int LeftRight = 0;
-            public static final int UpDown = 1;
+            public static final int kLeftRight = 0;
+            public static final int kUpDown = 1;
         }
         public final class RightStick {
-            public static final int LeftRight = 4;
-            public static final int UpDown = 5;
+            public static final int kLeftRight = 4;
+            public static final int kUpDown = 5;
         }
-        public final static int LeftToggle = 2;
-        public final static int RightToggle = 3;
+        public final static int kLeftToggle = 2;
+        public final static int kRightToggle = 3;
     
         public final class Button {
-            public static final int A = 1;
-            public static final int B = 2;
-            public static final int X = 3;
-            public static final int Y = 4;
-            public static final int LB = 5;
-            public static final int RB = 6;
-            public static final int Back = 7;
-            public static final int Start = 8;
-            // public static final int LeftJoyStickClick = 9;
-            // public static final int RightJoyStickClick = 10;
+            public static final int kA = 1;
+            public static final int kB = 2;
+            public static final int kX = 3;
+            public static final int kY = 4;
+            public static final int kLB = 5;
+            public static final int kRB = 6;
+            public static final int kBack = 7;
+            public static final int kStart = 8;
+            // public static final int kLeftJoyStickClick = 9;
+            // public static final int kRightJoyStickClick = 10;
         }    
     }
     
     // 3D Joystick (rotating stick)
     public static final class Joystick3D{
         public final class Axis {
-            public static final int LeftRight = 0;
-            public static final int FightFlight = 1;
-            public static final int TurnNeck = 2;
-            public static final int Throttle = 3;
+            public static final int kLeftRight = 0;
+            public static final int kFightFlight = 1;
+            public static final int kTurnNeck = 2;
+            public static final int kThrottle = 3;
         }
     }
 }
