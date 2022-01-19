@@ -20,6 +20,7 @@ public class ArcadeDriveCommand extends CommandBase {
     m_drive = subsystem;
     m_forwardSpeed = forwardSpeed;
     m_rotation = rotation;
+    
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(m_drive);
   }

@@ -25,14 +25,19 @@ public class RobotContainer {
   
   // The robot's subsystems and commands are defined here...
   private final DriveSubsystem m_driveSubsystem = new DriveSubsystem();
+  private final PDPSubsystem m_pdpSubsystem = new PDPSubsystem(); 
 
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
+
+    Boolean atCompetition = false;
     
     configureButtonBindings();
     
     configureDefaultCommands();
+
+    m_pdpSubsystem.setUpShuffleboard(atCompetition);
   }
 
   /**

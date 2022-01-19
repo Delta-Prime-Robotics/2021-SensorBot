@@ -6,6 +6,7 @@ package frc.robot.subsystems;
 
 import com.revrobotics.CANEncoder;
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -14,6 +15,10 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import static frc.robot.Constants.*;
 
 public class DriveSubsystem extends SubsystemBase {
+
+  private static final double kRampPeriod = 0.3;
+  // Estimate. Need to confirm this with the actual robot
+  private static final double kDistancePerRotation = 2 * Math.PI * 6.0; 
 
   private CANSparkMax m_leftLeaderMotor;
   private CANSparkMax m_leftFollowerMotor;  
@@ -36,7 +41,7 @@ public class DriveSubsystem extends SubsystemBase {
     m_leftEncoder = m_leftLeaderMotor.getEncoder();
     m_rightEncoder = m_rightLeaderMotor.getEncoder();
 
-    setRampRate(.3);
+    setRampRate(kRampPeriod);
 
     m_leftFollowerMotor.follow(m_leftLeaderMotor);
     m_rightFollowerMotor.follow(m_rightLeaderMotor);
@@ -70,6 +75,13 @@ public class DriveSubsystem extends SubsystemBase {
   public void stop() {
     m_diffDrive.tankDrive(0, 0);
   }
+
+  public void setIdleMode(IdleMode mode) {
+		m_leftLeaderMotor.setIdleMode(mode);
+		m_leftFollowerMotor.setIdleMode(mode);
+		m_rightLeaderMotor.setIdleMode(mode);
+		m_rightFollowerMotor.setIdleMode(mode);
+	}
 
   public void arcadeDrive(double forwardSpeed, double rotation) {
     m_diffDrive.arcadeDrive(forwardSpeed, rotation);

@@ -27,7 +27,7 @@ public final class Constants {
             public static final int kLeftFollower = 12;
             public static final int kRightLeader = 13;
             public static final int kRightFollower = 14;
-            public static final int kPCM = 0;
+            public static final int kPDP = 0;
         }
     }
 
