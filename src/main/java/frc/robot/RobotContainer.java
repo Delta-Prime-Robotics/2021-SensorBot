@@ -58,8 +58,8 @@ public class RobotContainer {
     // Set Arcade Drive as the default
     m_driveSubsystem.setDefaultCommand(
       new ArcadeDriveCommand(m_driveSubsystem,
-      () -> -m_gamePad.getRawAxis(GamePad.RightStick.kUpDown),
-      () -> m_gamePad.getRawAxis(GamePad.RightStick.kLeftRight))
+      () -> m_gamePad.getRawAxis(GamePad.RightStick.kLeftRight),
+      () -> -m_gamePad.getRawAxis(GamePad.RightStick.kUpDown))
     );
   }
 

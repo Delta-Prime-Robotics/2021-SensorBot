@@ -47,11 +47,11 @@ public final class Constants {
             public static final int kUpDown = 1;
         }
         public final class RightStick {
-            public static final int kLeftRight = 4;
-            public static final int kUpDown = 5;
+            public static final int kLeftRight = 2;
+            public static final int kUpDown = 3;
         }
-        public final static int kLeftToggle = 2;
-        public final static int kRightToggle = 3;
+        // public final static int kLeftToggle = 2;
+        // public final static int kRightToggle = 3;
     
         public final class Button {
             public static final int kA = 1;

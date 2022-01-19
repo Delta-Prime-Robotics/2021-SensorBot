@@ -41,6 +41,8 @@ public class DriveSubsystem extends SubsystemBase {
     m_leftEncoder = m_leftLeaderMotor.getEncoder();
     m_rightEncoder = m_rightLeaderMotor.getEncoder();
 
+    m_rightLeaderMotor.setInverted(true);
+
     setRampRate(kRampPeriod);
 
     m_leftFollowerMotor.follow(m_leftLeaderMotor);
